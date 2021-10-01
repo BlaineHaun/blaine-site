@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "lodash";
+import { Link } from "gatsby";
 
 const obj = {
     one: {
@@ -14,6 +15,7 @@ const About = () => {
     return (
         <div>
             <h1>Oh Hai, about that</h1>
+            <Link to="/">Fastly go to home page</Link>
         </div>
     );
 };
