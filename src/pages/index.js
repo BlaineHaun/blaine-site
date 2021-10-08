@@ -2,6 +2,7 @@ import * as React from "react"
 import { getRandomIntInclusive } from "../utils";
 import {graphql, Link} from "gatsby";
 import _ from "lodash";
+import metroidImage from "../../images/metroid.jpeg";
 
 const rollD20 = getRandomIntInclusive(1,20)
 
@@ -24,9 +25,10 @@ export default function Component ({ data }) {
             <h2>Roll was: {rollD20}</h2>
             <ul>
                 { data.allSitePage.edges.map(({ node }) => {
-                    return <li>{node.path}</li>
+                    return <li id={node.id} key={node.id}>{node.path}</li>
                 }) }
             </ul>
+            <img src={metroidImage} alt="love it!" style={{ width: "100%" }}/>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorem
                 beatae cum facilis. Modi incidunt officiis laboriosam optio vero libero
