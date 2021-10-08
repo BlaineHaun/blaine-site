@@ -2,7 +2,8 @@ import * as React from "react"
 import { getRandomIntInclusive } from "../utils";
 import {graphql, Link} from "gatsby";
 import _ from "lodash";
-import metroidImage from "../../images/metroid.jpeg";
+// import metroidImage from "../../images/metroid.jpeg";
+import { StaticImage } from "gatsby-plugin-image"
 
 const rollD20 = getRandomIntInclusive(1,20)
 
@@ -28,7 +29,8 @@ export default function Component ({ data }) {
                     return <li id={node.id} key={node.id}>{node.path}</li>
                 }) }
             </ul>
-            <img src={metroidImage} alt="love it!" style={{ width: "100%" }}/>
+            {/*<img src={metroidImage} alt="love it!" style={{ width: "100%" }}/>*/}
+            <StaticImage src="../../images/metroid.jpeg" alt="cute image" />
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorem
                 beatae cum facilis. Modi incidunt officiis laboriosam optio vero libero

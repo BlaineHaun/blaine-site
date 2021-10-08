@@ -15,6 +15,9 @@
   "license": "ISC",
   "dependencies": {
     "gatsby": "^3.14.1",
+    "gatsby-plugin-image": "^1.14.1",
+    "gatsby-plugin-sharp": "^3.14.1",
+    "gatsby-source-filesystem": "^3.14.0",
     "lodash": "^4.17.21"
   }
 }

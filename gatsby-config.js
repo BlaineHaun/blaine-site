@@ -6,8 +6,19 @@ module.exports = {
         woof: "This is somethoinmg that I wanted",
         whatabout: {
             nested: {
-                stuff: "stuff"
-            }
-        }
-    }
+                stuff: "stuff",
+            },
+        },
+    },
+    plugins: [
+        {
+            resolve: "gatsby-source-filesystem",
+            options: {
+                name: "images",
+                path: `${__dirname}/images`
+            },
+        },
+        "gatsby-plugin-image",
+        "gatsby-plugin-sharp",
+    ]
 }
