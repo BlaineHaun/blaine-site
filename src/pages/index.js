@@ -1,6 +1,6 @@
 import * as React from "react"
 import { getRandomIntInclusive } from "../utils";
-import { Link } from "gatsby";
+import {graphql, Link} from "gatsby";
 import _ from "lodash";
 
 const rollD20 = getRandomIntInclusive(1,20)
@@ -13,14 +13,20 @@ const obj = {
     }
 }
 
-export default function Component () {
+export default function Component ({ data }) {
     const result = _.get(obj, "one.two.three")
     console.log(result);
+    console.log(data)
 
     return (
         <div>
             <h1>Title here</h1>
             <h2>Roll was: {rollD20}</h2>
+            <ul>
+                { data.allSitePage.edges.map(({ node }) => {
+                    return <li>{node.path}</li>
+                }) }
+            </ul>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorem
                 beatae cum facilis. Modi incidunt officiis laboriosam optio vero libero
@@ -69,3 +75,17 @@ export default function Component () {
         </div>
     )
 }
+
+export const HomePageQuery = graphql`
+    query HomePageQuery {
+    allSitePage {
+        edges {
+          node {
+            id
+            path
+            component
+          }
+        }
+      }
+    }
+`
